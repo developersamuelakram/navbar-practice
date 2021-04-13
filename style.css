@@ -1,0 +1,241 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap");
+
+:root {
+  --gradient: linear-gradient(90deg, #ff0278, #485e95);
+}
+
+* {
+  font-family: "Open Sans", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  outline: none;
+  text-transform: capitalize;
+  transition: all 0.2s linear;
+}
+
+*::selection {
+  background-color: #fff;
+  color: #333;
+}
+
+html {
+  font-size: 62.5%;
+  overflow-x: hidden;
+}
+
+body {
+  background: #333;
+}
+
+header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  background: var(--gradient);
+  padding: 2rem 7%;
+}
+
+header .logo {
+  font-size: 2.5rem;
+  color: #fff;
+  font-weight: 600;
+}
+
+header .navbar ul {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  list-style: none;
+}
+
+header .navbar ul li a {
+  font-size: 2rem;
+  margin-left: 2rem;
+  color: #fff;
+  position: relative;
+}
+
+/* for a linear line  */
+header .navbar ul li a::before {
+  content: "";
+  position: absolute;
+  bottom: -0.5rem;
+  right: 0;
+  height: 0.2rem;
+  background: white;
+  width: 0%;
+  transition: 0.2s linear;
+}
+
+header .navbar ul li a:hover::before {
+  left: 0;
+  width: 100%;
+}
+
+header #menu {
+  font-size: 3rem;
+  color: white;
+  cursor: pointer;
+  display: none;
+}
+
+.home {
+  height: 800px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+
+  overflow: hidden;
+  background-size: cover;
+  background-image: url(assets/background.jpg);
+  background-position: center;
+  justify-content: center;
+  align-items: center;
+  margin-top: -2%;
+}
+
+.home .content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-left: 40px;
+  margin-right: 40px;
+  margin-top: -40px;
+
+  order: 2;
+}
+
+.btn {
+  width: 200px;
+  border-radius: 50px;
+  height: 60px;
+  color: white;
+  background-color: red;
+  font-size: 2rem;
+  outline: none;
+  font-weight: bold;
+}
+.home .content h1 {
+  color: white;
+  font-size: 3.25rem;
+}
+
+.home image {
+  order: 1;
+}
+
+.image img {
+  width: 400px;
+  margin-top: 5px;
+}
+
+.productpage {
+  height: 800px;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.8)),
+    url(assets/page2.jpg);
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.box img {
+  width: 200px;
+}
+
+.productpage h2 {
+  color: white;
+  text-align: center;
+  font-size: 2.7rem;
+  padding-top: 20px;
+}
+
+/* media queries */
+@media (max-width: 768px) {
+  html {
+    font-size: 55%;
+  }
+
+  header #menu {
+    display: block;
+  }
+
+  header .navbar {
+    position: fixed;
+    /* to hide shit of navbar */
+    top: -120%;
+    left: 0;
+    width: 100%;
+    background: white;
+  }
+
+  header .navbar ul {
+    flex-flow: column;
+    padding: 2rem;
+  }
+
+  header .navbar ul li {
+    width: 100%;
+    text-align: center;
+  }
+
+  header .navbar ul li a {
+    display: block;
+    background: var(--gradient);
+    margin: 1rem 0;
+    padding: 1rem;
+    font-size: 2.5rem;
+    z-index: 0;
+    border-radius: 50px;
+  }
+
+  /* handling the selection color */
+
+  header .navbar ul li a::before {
+    height: 100%;
+    bottom: 0;
+    z-index: -1;
+    border-radius: 50px;
+
+    background: #333;
+  }
+
+  .fa-times {
+    transform: rotate(180deg);
+  }
+
+  header .navbar.nav-toggle {
+    top: 7.4rem;
+    transition: top 1s ease;
+  }
+
+  .productpage {
+    flex-direction: column;
+    height: 900px;
+    text-align: center;
+  }
+
+  .box img {
+    width: 100px;
+  }
+
+  .home .content h1 {
+    margin: 20px;
+  }
+}
+
+@media (max-width: 469px) {
+  .home .content h1 {
+    font-size: 2.2rem;
+  }
+}
